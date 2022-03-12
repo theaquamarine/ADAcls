@@ -23,8 +23,6 @@
 
     AliasesToExport = @()
 
-    CompatiblePSEditions = @('Desktop', 'Core')
-
     # PowerShell Gallery: Define your module's metadata
     PrivateData = @{
             PSData = @{
@@ -34,6 +32,7 @@
 
                 ProjectUri = 'https://github.com/theaquamarine/ADAcls'
 
+                ExternalModuleDependencies = @('ActiveDirectory')
         }
     }
 }
