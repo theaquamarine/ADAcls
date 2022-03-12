@@ -1,0 +1,24 @@
+<Types>
+  <Type>
+    <Name>Microsoft.ActiveDirectory.Management.ADObject</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Path</Name>
+        <!-- Use full provider-qualified path to avoid escaping bug https://www.dvolve.net/blog/2019/07/workaround-for-ad-psdrive-bug-in-server-2019/ -->
+        <!-- <GetScriptBlock>
+              'AD:\' + $this.DistinguishedName
+          </GetScriptBlock> -->
+        <GetScriptBlock>
+          'Microsoft.ActiveDirectory.Management.dll\ActiveDirectory:://RootDSE/' + $this.DistinguishedName
+        </GetScriptBlock>
+      </ScriptProperty>
+      <!-- AD provider includes PSPath, so this will error there -->
+      <!-- <ScriptProperty>
+          <Name>PSPath</Name>
+          <GetScriptBlock>
+            'Microsoft.ActiveDirectory.Management.dll\ActiveDirectory:://RootDSE/' + $this.DistinguishedName
+          </GetScriptBlock>
+      </ScriptProperty> -->
+    </Members>
+  </Type>
+</Types>

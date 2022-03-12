@@ -1,0 +1,36 @@
+<Types>
+  <Type>
+    <Name>System.DirectoryServices.ActiveDirectoryAccessRule</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>ObjectTypeName</Name>
+        <GetScriptBlock>
+          ConvertFrom-ADObjectTypeGuid $this.ObjectType
+        </GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>InheritedObjectTypeName</Name>
+        <GetScriptBlock>
+          ConvertFrom-ADObjectTypeGuid $this.InheritedObjectType
+        </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>System.DirectoryServices.ActiveDirectoryAuditRule</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>ObjectTypeName</Name>
+        <GetScriptBlock>
+          ConvertFrom-ADObjectTypeGuid $this.ObjectType
+        </GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>InheritedObjectTypeName</Name>
+        <GetScriptBlock>
+          ConvertFrom-ADObjectTypeGuid $this.InheritedObjectType
+        </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+</Types>
