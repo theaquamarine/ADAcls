@@ -9,7 +9,7 @@
               'AD:\' + $this.DistinguishedName
           </GetScriptBlock> -->
         <GetScriptBlock>
-          'Microsoft.ActiveDirectory.Management.dll\ActiveDirectory:://RootDSE/' + $this.DistinguishedName
+          'ActiveDirectory:://RootDSE/' + $this.DistinguishedName
         </GetScriptBlock>
       </ScriptProperty>
       <!-- AD provider includes PSPath, so this will error there -->
