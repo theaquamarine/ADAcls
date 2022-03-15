@@ -1,0 +1,23 @@
+name: Publish PowerShell Module
+
+on: 
+  push:
+    tags:
+      - v[0-9].[0-9]+.[0-9]+
+
+jobs:
+  test:
+    uses: ./.github/workflows/powershell.yaml
+  publish:
+    runs-on: windows-latest
+    needs: test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set module version
+      run: Update-ModuleManifest -Path .\ADACLs.psd1 -ModuleVersion ((git describe --tags) -replace '^v' -as [version])
+      shell: pwsh
+    - name: Publish module
+      env:
+        GALLERY_KEY: ${{ secrets.GALLERY_KEY }}
+      run: Publish-Module -Path . -NuGetApiKey $env:GALLERY_KEY -Verbose -WhatIf
+      shell: pwsh
